@@ -109,7 +109,7 @@ const Profile = () => {
           marginBottom: '2.5rem',
           display: 'flex',
           alignItems: 'center',
-          justify-content: 'space-between',
+          justifyContent: 'space-between',
           flexWrap: 'wrap',
           gap: '1.5rem',
           boxShadow: 'var(--shadow-md)'
