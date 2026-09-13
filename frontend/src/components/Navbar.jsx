@@ -149,7 +149,7 @@ const Navbar = () => {
                     </Link>
 
                     <Link to="/orders" className="admin-nav-item" style={{ fontSize: '0.85rem' }}>
-                      <Package size={16} /> My Personal Purchases
+                      <Package size={16} /> My Orders
                     </Link>
 
                     <button
