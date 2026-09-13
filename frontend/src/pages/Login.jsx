@@ -51,7 +51,7 @@ const Login = () => {
     <div className="container" style={{ paddingTop: '4rem', paddingBottom: '4rem', maxWidth: 480 }}>
       <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '2.25rem', boxShadow: 'var(--shadow-lg)' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <img src="/logo.png" alt="LumaCart Logo" style={{ width: 56, height: 56, borderRadius: '16px', objectFit: 'cover', margin: '0 auto 1rem', boxShadow: '0 0 25px rgba(99, 102, 241, 0.45)', border: '1.5px solid rgba(255, 255, 255, 0.2)' }} />
+          <img src="/logo.svg" alt="LumaCart Logo" style={{ width: 54, height: 54, margin: '0 auto 1rem', display: 'block' }} />
           <h1 style={{ fontSize: '1.8rem', fontWeight: 800 }}>Welcome Back</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
             Sign in to access your orders, wishlist, and profile
