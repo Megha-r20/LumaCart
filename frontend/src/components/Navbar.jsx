@@ -42,10 +42,8 @@ const Navbar = () => {
     <header className="navbar">
       <div className="container nav-container">
         {/* Brand Logo */}
-        <Link to="/" className="brand-logo">
-          <div className="brand-icon">
-            <Sparkles size={22} />
-          </div>
+        <Link to="/" className="brand-logo" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <img src="/logo.png" alt="LumaCart Logo" style={{ width: 40, height: 40, borderRadius: '10px', objectFit: 'cover', boxShadow: '0 0 16px rgba(99, 102, 241, 0.45)', border: '1px solid rgba(255, 255, 255, 0.15)' }} />
           <span>LumaCart</span>
         </Link>
 

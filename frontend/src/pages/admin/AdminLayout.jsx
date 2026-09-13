@@ -54,9 +54,7 @@ const AdminLayout = () => {
       <aside className="admin-sidebar" style={{ background: '#0B0F19', borderRight: '1px solid rgba(255, 255, 255, 0.08)', width: 270 }}>
         <div className="admin-sidebar-header" style={{ padding: '1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-            <div className="brand-icon" style={{ width: 36, height: 36 }}>
-              <Sparkles size={20} />
-            </div>
+            <img src="/logo.png" alt="LumaCart Logo" style={{ width: 38, height: 38, borderRadius: '10px', objectFit: 'cover', boxShadow: '0 0 15px rgba(99, 102, 241, 0.4)' }} />
             <div>
               <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.25rem', color: '#FFF' }}>LumaConsole</span>
               <div style={{ fontSize: '0.72rem', color: '#A5B4FC', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.8px' }}>Enterprise SaaS</div>

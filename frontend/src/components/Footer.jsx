@@ -54,10 +54,8 @@ const Footer = () => {
       <div className="container" style={{ padding: '3.5rem 1.5rem 2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2.5rem', marginBottom: '3rem' }}>
           <div>
-            <Link to="/" className="brand-logo" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
-              <div className="brand-icon">
-                <Sparkles size={22} />
-              </div>
+            <Link to="/" className="brand-logo" style={{ marginBottom: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.75rem' }}>
+              <img src="/logo.png" alt="LumaCart Logo" style={{ width: 38, height: 38, borderRadius: '10px', objectFit: 'cover' }} />
               <span>LumaCart</span>
             </Link>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.6 }}>
