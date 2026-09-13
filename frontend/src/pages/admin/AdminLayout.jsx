@@ -125,6 +125,10 @@ const AdminLayout = () => {
               <Activity size={14} /> API & DB Operational
             </div>
 
+            <Link to="/orders" className="btn btn-secondary btn-sm" style={{ fontSize: '0.82rem', gap: '0.4rem', border: '1px solid var(--border)' }} title="View personal orders placed as customer">
+              <ShoppingBag size={14} /> My Personal Purchases
+            </Link>
+
             <div style={{ height: 24, width: 1, background: 'rgba(255, 255, 255, 0.1)' }} />
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>

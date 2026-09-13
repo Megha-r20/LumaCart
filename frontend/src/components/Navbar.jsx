@@ -113,7 +113,7 @@ const Navbar = () => {
                       position: 'absolute',
                       right: 0,
                       top: '120%',
-                      width: 220,
+                      width: 240,
                       background: 'var(--bg-secondary)',
                       border: '1px solid var(--border)',
                       borderRadius: 'var(--radius-md)',
@@ -126,15 +126,24 @@ const Navbar = () => {
                     }}
                     onClick={() => setIsUserDropdownOpen(false)}
                   >
-                    <div style={{ padding: '0.5rem 0.75rem', borderBottom: '1px solid var(--border-light)', marginBottom: '0.25rem' }}>
-                      <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{user.name}</div>
+                    <div style={{ padding: '0.6rem 0.75rem', borderBottom: '1px solid var(--border-light)', marginBottom: '0.25rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{user.name}</div>
+                        {isAdmin && <span className="badge badge-warning" style={{ fontSize: '0.65rem' }}>Admin</span>}
+                      </div>
                       <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{user.email}</div>
                     </div>
 
                     {isAdmin && (
-                      <Link to="/admin" className="admin-nav-item" style={{ fontSize: '0.85rem' }}>
-                        <LayoutDashboard size={16} /> Admin Portal
-                      </Link>
+                      <>
+                        <Link to="/admin" className="admin-nav-item" style={{ fontSize: '0.85rem', color: '#A5B4FC', fontWeight: 700 }}>
+                          <LayoutDashboard size={16} /> Admin Portal
+                        </Link>
+                        <Link to="/admin/orders" className="admin-nav-item" style={{ fontSize: '0.85rem' }}>
+                          <Sliders size={16} /> Store Customer Orders
+                        </Link>
+                        <div style={{ height: 1, background: 'var(--border-light)', margin: '0.25rem 0' }} />
+                      </>
                     )}
 
                     <Link to="/profile" className="admin-nav-item" style={{ fontSize: '0.85rem' }}>
@@ -142,13 +151,13 @@ const Navbar = () => {
                     </Link>
 
                     <Link to="/orders" className="admin-nav-item" style={{ fontSize: '0.85rem' }}>
-                      <Package size={16} /> My Orders
+                      <Package size={16} /> My Personal Purchases
                     </Link>
 
                     <button
                       onClick={logout}
                       className="admin-nav-item"
-                      style={{ fontSize: '0.85rem', color: 'var(--danger)', width: '100%', textAlign: 'left' }}
+                      style={{ fontSize: '0.85rem', color: 'var(--danger)', width: '100%', textAlign: 'left', marginTop: '0.25rem' }}
                     >
                       <LogOut size={16} /> Logout
                     </button>
