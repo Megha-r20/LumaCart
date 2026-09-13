@@ -116,7 +116,7 @@ const OrderList = () => {
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{order.user?.email}</div>
                   </td>
                   <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-                  <td style={{ fontWeight: 800, color: '#FFF' }}>${order.totalPrice?.toFixed(2)}</td>
+                  <td style={{ fontWeight: 800, color: '#FFF' }}>₹{order.totalPrice?.toLocaleString('en-IN')}</td>
                   <td>
                     <span className={`badge ${order.isPaid ? 'badge-success' : 'badge-warning'}`}>
                       ● {order.isPaid ? 'Paid (Stripe)' : 'Unpaid'}

@@ -77,9 +77,9 @@ const ProductCard = ({ product }) => {
 
         <div className="product-price-row">
           <div className="price-box">
-            <span className="current-price">${product.price?.toFixed(2)}</span>
+            <span className="current-price">₹{product.price?.toLocaleString('en-IN')}</span>
             {product.originalPrice > product.price && (
-              <span className="original-price">${product.originalPrice?.toFixed(2)}</span>
+              <span className="original-price">₹{product.originalPrice?.toLocaleString('en-IN')}</span>
             )}
           </div>
           <button

@@ -230,7 +230,7 @@ const Checkout = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%', marginTop: '1rem' }} disabled={loading}>
-                  {loading ? 'Processing Order via Stripe...' : `Pay $${totalPrice.toFixed(2)} & Complete Order`}
+                  {loading ? 'Processing Order via Stripe...' : `Pay ₹${totalPrice?.toLocaleString('en-IN')} & Complete Order`}
                 </button>
               </form>
             </div>
@@ -249,7 +249,7 @@ const Checkout = () => {
                   <div style={{ fontWeight: 600, display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{item.name}</div>
                   <div style={{ color: 'var(--text-muted)' }}>Qty: {item.qty}</div>
                 </div>
-                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>${(item.price * item.qty).toFixed(2)}</div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>₹{(item.price * item.qty).toLocaleString('en-IN')}</div>
               </div>
             ))}
           </div>
@@ -257,25 +257,25 @@ const Checkout = () => {
           <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>Subtotal</span>
-              <span>${itemsPrice.toFixed(2)}</span>
+              <span>₹{itemsPrice?.toLocaleString('en-IN')}</span>
             </div>
             {discountPrice > 0 && (
               <div style={{ display: 'flex', justifyContent: 'space-between', color: '#10B981' }}>
                 <span>Discount</span>
-                <span>-${discountPrice.toFixed(2)}</span>
+                <span>-₹{discountPrice?.toLocaleString('en-IN')}</span>
               </div>
             )}
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>Shipping</span>
-              <span>{shippingPrice === 0 ? 'FREE' : `$${shippingPrice.toFixed(2)}`}</span>
+              <span>{shippingPrice === 0 ? 'FREE' : `₹${shippingPrice?.toLocaleString('en-IN')}`}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span>Tax</span>
-              <span>${taxPrice.toFixed(2)}</span>
+              <span>GST (18%)</span>
+              <span>₹{taxPrice?.toLocaleString('en-IN')}</span>
             </div>
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '0.75rem', display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: 800 }}>
               <span>Total</span>
-              <span className="text-gradient">${totalPrice.toFixed(2)}</span>
+              <span className="text-gradient">₹{totalPrice?.toLocaleString('en-IN')}</span>
             </div>
           </div>
         </div>

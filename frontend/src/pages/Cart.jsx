@@ -41,8 +41,8 @@ const Cart = () => {
     }
   };
 
-  // Free shipping threshold calculation ($100)
-  const freeShippingThreshold = 100;
+  // Free shipping threshold calculation (₹5000)
+  const freeShippingThreshold = 5000;
   const amountToFreeShipping = Math.max(0, freeShippingThreshold - itemsPrice);
   const shippingProgress = Math.min(100, (itemsPrice / freeShippingThreshold) * 100);
 
@@ -86,7 +86,7 @@ const Cart = () => {
               {amountToFreeShipping === 0 ? (
                 <span style={{ color: '#34D399' }}>🎉 Congratulations! You unlocked FREE Express Shipping!</span>
               ) : (
-                <span>Add <strong style={{ color: '#A5B4FC' }}>${amountToFreeShipping.toFixed(2)}</strong> more to get FREE Express Shipping!</span>
+                <span>Add <strong style={{ color: '#A5B4FC' }}>₹{amountToFreeShipping.toLocaleString('en-IN')}</strong> more to get FREE Express Shipping!</span>
               )}
             </span>
           </div>
@@ -128,7 +128,7 @@ const Cart = () => {
                     {item.name}
                   </Link>
                   <div style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>
-                    Unit Price: <span style={{ color: '#A5B4FC', fontWeight: 600 }}>${item.price?.toFixed(2)}</span>
+                    Unit Price: <span style={{ color: '#A5B4FC', fontWeight: 600 }}>₹{item.price?.toLocaleString('en-IN')}</span>
                   </div>
                 </div>
 
@@ -144,8 +144,8 @@ const Cart = () => {
                 </div>
 
                 {/* Line Price */}
-                <div style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'var(--font-heading)', width: 110, textAlign: 'right', color: '#FFF' }}>
-                  ${(item.price * item.qty).toFixed(2)}
+                <div style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'var(--font-heading)', width: 120, textAlign: 'right', color: '#FFF' }}>
+                  ₹{(item.price * item.qty).toLocaleString('en-IN')}
                 </div>
 
                 {/* Delete Item Button */}
@@ -228,7 +228,7 @@ const Cart = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.95rem', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-secondary)' }}>Items Subtotal</span>
-                <span style={{ fontWeight: 600 }}>${itemsPrice.toFixed(2)}</span>
+                <span style={{ fontWeight: 600 }}>₹{itemsPrice.toLocaleString('en-IN')}</span>
               </div>
 
               {discountPrice > 0 && (
@@ -236,26 +236,26 @@ const Cart = () => {
                   <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                     <CheckCircle2 size={14} /> Discount ({promoCode})
                   </span>
-                  <span>-${discountPrice.toFixed(2)}</span>
+                  <span>-₹{discountPrice.toLocaleString('en-IN')}</span>
                 </div>
               )}
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-secondary)' }}>Estimated Shipping</span>
                 <span style={{ fontWeight: 600, color: shippingPrice === 0 ? '#34D399' : 'inherit' }}>
-                  {shippingPrice === 0 ? 'FREE' : `$${shippingPrice.toFixed(2)}`}
+                  {shippingPrice === 0 ? 'FREE' : `₹${shippingPrice.toLocaleString('en-IN')}`}
                 </span>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)' }}>Estimated Tax (8%)</span>
-                <span style={{ fontWeight: 600 }}>${taxPrice.toFixed(2)}</span>
+                <span style={{ color: 'var(--text-secondary)' }}>Estimated GST (18%)</span>
+                <span style={{ fontWeight: 600 }}>₹{taxPrice.toLocaleString('en-IN')}</span>
               </div>
 
               <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                 <span style={{ fontSize: '1.1rem', fontWeight: 800 }}>Total Price</span>
                 <span className="text-gradient" style={{ fontSize: '1.6rem', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
-                  ${totalPrice.toFixed(2)}
+                  ₹{totalPrice.toLocaleString('en-IN')}
                 </span>
               </div>
             </div>

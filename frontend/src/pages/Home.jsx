@@ -77,7 +77,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>$299.99</div>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>₹24,999</div>
                   <span className="badge badge-success">In Stock</span>
                 </div>
               </div>

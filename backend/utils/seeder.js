@@ -12,13 +12,12 @@ dotenv.config();
 export const seedDatabase = async () => {
   try {
     // Check if products already exist to avoid double-seeding on restart
-    const productCount = await Product.countDocuments();
-    if (productCount > 0) {
-      console.log('Database already contains products. Skipping automatic seed.');
-      return;
-    }
-
-    console.log('Seeding initial LumaCart database...');
+    console.log('Seeding LumaCart database with Indian Rupee (₹) product catalog...');
+    await Product.deleteMany({});
+    await Category.deleteMany({});
+    await User.deleteMany({});
+    await Review.deleteMany({});
+    await Order.deleteMany({});
 
     // 1. Create Categories
     const categoriesData = [
@@ -137,8 +136,8 @@ export const seedDatabase = async () => {
         brand: 'LumaAudio',
         category: catMap['audio-acoustics'],
         description: 'Immerse yourself in crystal clear studio sound. Powered by custom 40mm beryllium drivers, active hybrid noise cancellation (ANC), and 45-hour battery longevity.',
-        price: 299.99,
-        originalPrice: 349.99,
+        price: 24999,
+        originalPrice: 29999,
         countInStock: 24,
         rating: 4.8,
         numReviews: 14,
@@ -162,8 +161,8 @@ export const seedDatabase = async () => {
         brand: 'VortexWear',
         category: catMap['wearable-tech'],
         description: 'Seamless titanium chassis with edge-to-edge LTPO AMOLED display. Advanced health tracking including ECG, SpO2 sensor, and dual-frequency GPS.',
-        price: 399.00,
-        originalPrice: 449.00,
+        price: 32999,
+        originalPrice: 36999,
         countInStock: 18,
         rating: 4.9,
         numReviews: 22,
@@ -187,8 +186,8 @@ export const seedDatabase = async () => {
         brand: 'LumaTech',
         category: catMap['laptops-computing'],
         description: 'Engineered for creators and developers. Powered by 12-core ARM processor, 3.2K 120Hz OLED screen, and up to 20 hours of real-world productivity.',
-        price: 1499.00,
-        originalPrice: 1699.00,
+        price: 124999,
+        originalPrice: 139999,
         countInStock: 8, // Low stock warning
         rating: 4.7,
         numReviews: 9,
@@ -212,8 +211,8 @@ export const seedDatabase = async () => {
         brand: 'Aura',
         category: catMap['smart-home'],
         description: 'Room-filling 360-degree acoustic clarity with Dolby Atmos spatial audio support. Ambient LED atmosphere lighting that syncs with music playback.',
-        price: 189.50,
-        originalPrice: 219.00,
+        price: 14999,
+        originalPrice: 17999,
         countInStock: 35,
         rating: 4.6,
         numReviews: 11,
@@ -236,8 +235,8 @@ export const seedDatabase = async () => {
         brand: 'LumaOptics',
         category: catMap['cameras-gear'],
         description: 'Unleash your visual storytelling. 26.1MP BSI CMOS sensor, 4K 120fps video recording, and real-time AI eye tracking autofocus for portraits and wildlife.',
-        price: 1199.99,
-        originalPrice: 1299.99,
+        price: 99999,
+        originalPrice: 109999,
         countInStock: 5, // Low stock warning
         rating: 4.9,
         numReviews: 18,
@@ -260,8 +259,8 @@ export const seedDatabase = async () => {
         brand: 'LumaAudio',
         category: catMap['audio-acoustics'],
         description: 'Ergonomic in-ear design with adaptive noise transparency mode. Qi wireless charging case provides 32 hours total playtime.',
-        price: 129.99,
-        originalPrice: 159.99,
+        price: 9999,
+        originalPrice: 12999,
         countInStock: 42,
         rating: 4.5,
         numReviews: 30,
@@ -334,11 +333,11 @@ export const seedDatabase = async () => {
           update_time: new Date().toISOString(),
           email_address: demoCustomer.email
         },
-        itemsPrice: 299.99,
-        taxPrice: 24.00,
+        itemsPrice: 24999,
+        taxPrice: 4499.82,
         shippingPrice: 0.00,
         discountPrice: 0.00,
-        totalPrice: 323.99,
+        totalPrice: 29498.82,
         isPaid: true,
         paidAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
         status: 'Delivered',
@@ -347,7 +346,7 @@ export const seedDatabase = async () => {
         trackingLogs: [
           { status: 'Pending', note: 'Order confirmed and payment authorized.', updatedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000) },
           { status: 'Processing', note: 'Packed at distribution hub.', updatedAt: new Date(Date.now() - 36 * 60 * 60 * 1000) },
-          { status: 'Shipped', note: 'Out for courier delivery via FedEx.', updatedAt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+          { status: 'Shipped', note: 'Out for courier delivery via BlueDart.', updatedAt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
           { status: 'Delivered', note: 'Package left at front doorstep.', updatedAt: new Date(Date.now() - 12 * 60 * 60 * 1000) }
         ]
       },
@@ -385,11 +384,11 @@ export const seedDatabase = async () => {
           update_time: new Date().toISOString(),
           email_address: secondCustomer.email
         },
-        itemsPrice: 588.50,
-        taxPrice: 47.08,
-        shippingPrice: 15.00,
-        discountPrice: 20.00,
-        totalPrice: 630.58,
+        itemsPrice: 47998,
+        taxPrice: 8639.64,
+        shippingPrice: 0.00,
+        discountPrice: 0.00,
+        totalPrice: 56637.64,
         isPaid: true,
         paidAt: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 hours ago
         status: 'Processing',

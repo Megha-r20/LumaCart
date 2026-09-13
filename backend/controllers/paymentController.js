@@ -19,8 +19,8 @@ export const createPaymentIntent = async (req, res, next) => {
 
     try {
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount * 100), // convert to cents
-        currency: 'usd',
+        amount: Math.round(amount * 100), // convert to paise (INR)
+        currency: 'inr',
         payment_method_types: ['card'],
         description: 'LumaCart E-Commerce Purchase'
       });

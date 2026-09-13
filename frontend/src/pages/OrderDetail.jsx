@@ -111,25 +111,25 @@ const OrderDetail = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.88rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Items Total</span>
-                <span>${order.itemsPrice?.toFixed(2)}</span>
+                <span>₹{order.itemsPrice?.toLocaleString('en-IN')}</span>
               </div>
               {order.discountPrice > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: '#10B981' }}>
                   <span>Discount</span>
-                  <span>-${order.discountPrice?.toFixed(2)}</span>
+                  <span>-₹{order.discountPrice?.toLocaleString('en-IN')}</span>
                 </div>
               )}
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Shipping</span>
-                <span>${order.shippingPrice?.toFixed(2)}</span>
+                <span>₹{order.shippingPrice?.toLocaleString('en-IN')}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-muted)' }}>Tax</span>
-                <span>${order.taxPrice?.toFixed(2)}</span>
+                <span style={{ color: 'var(--text-muted)' }}>GST (18%)</span>
+                <span>₹{order.taxPrice?.toLocaleString('en-IN')}</span>
               </div>
               <div style={{ borderTop: '1px solid var(--border)', paddingTop: '0.75rem', display: 'flex', justifyContent: 'space-between', fontSize: '1.1rem', fontWeight: 800 }}>
                 <span>Total Amount</span>
-                <span className="text-gradient">${order.totalPrice?.toFixed(2)}</span>
+                <span className="text-gradient">₹{order.totalPrice?.toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>

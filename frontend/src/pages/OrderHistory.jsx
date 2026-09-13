@@ -73,7 +73,7 @@ const OrderHistory = () => {
                   </td>
                   <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                   <td>{order.orderItems?.length || 0} items</td>
-                  <td style={{ fontWeight: 700 }}>${order.totalPrice?.toFixed(2)}</td>
+                  <td style={{ fontWeight: 700 }}>₹{order.totalPrice?.toLocaleString('en-IN')}</td>
                   <td>{getStatusBadge(order.status)}</td>
                   <td>
                     <Link to={`/orders/${order._id}`} className="btn btn-secondary btn-sm">

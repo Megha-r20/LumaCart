@@ -178,7 +178,7 @@ const ProductList = () => {
                   </td>
                   <td><span style={{ fontWeight: 600, color: '#A5B4FC' }}>{prod.brand}</span></td>
                   <td>{prod.category?.name || 'Category'}</td>
-                  <td style={{ fontWeight: 800, color: '#FFF' }}>${prod.price?.toFixed(2)}</td>
+                  <td style={{ fontWeight: 800, color: '#FFF' }}>₹{prod.price?.toLocaleString('en-IN')}</td>
                   <td>
                     <span className={`badge ${prod.countInStock < 10 ? 'badge-danger' : 'badge-success'}`}>
                       ● {prod.countInStock} items
@@ -235,7 +235,7 @@ const ProductList = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
                 <div className="form-group">
-                  <label className="form-label">Price ($)</label>
+                  <label className="form-label">Price (₹)</label>
                   <input type="number" step="0.01" className="form-control" value={formData.price} onChange={(e) => setFormData({ ...formData, price: e.target.value })} required />
                 </div>
                 <div className="form-group">

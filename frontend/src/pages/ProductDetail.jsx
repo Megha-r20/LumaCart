@@ -157,12 +157,12 @@ const ProductDetail = () => {
 
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', padding: '1rem 0', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
             <span style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-              ${product.price?.toFixed(2)}
+              ₹{product.price?.toLocaleString('en-IN')}
             </span>
             {product.originalPrice > product.price && (
               <>
                 <span style={{ fontSize: '1.1rem', color: 'var(--text-muted)', textDecoration: 'line-through' }}>
-                  ${product.originalPrice?.toFixed(2)}
+                  ₹{product.originalPrice?.toLocaleString('en-IN')}
                 </span>
                 <span className="badge badge-danger">Save {discountPercent}%</span>
               </>

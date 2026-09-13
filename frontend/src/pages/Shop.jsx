@@ -211,12 +211,12 @@ const Shop = () => {
           {/* Price Range */}
           <div className="form-group" style={{ marginBottom: '1.5rem' }}>
             <label className="form-label" style={{ fontSize: '0.85rem', color: '#A5B4FC', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              Price Range ($)
+              Price Range (₹)
             </label>
             <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '0.65rem' }}>
               <input
                 type="number"
-                placeholder="Min"
+                placeholder="Min (₹)"
                 className="form-control"
                 style={{
                   width: '100%',

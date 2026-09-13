@@ -56,7 +56,7 @@ const Dashboard = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.78rem', color: '#34D399', fontWeight: 700 }}>
               <ArrowUpRight size={14} /> +18.4% MoM
             </div>
-            <div className="stat-val" style={{ fontSize: '1.7rem', color: '#FFF' }}>${stats.totalRevenue?.toLocaleString()}</div>
+            <div className="stat-val" style={{ fontSize: '1.7rem', color: '#FFF' }}>₹{stats.totalRevenue?.toLocaleString('en-IN')}</div>
             <div className="stat-lbl">Gross Revenue</div>
           </div>
         </div>
@@ -113,7 +113,7 @@ const Dashboard = () => {
         <div style={{ background: '#0F172A', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: 'var(--radius-lg)', padding: '1.75rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <TrendingUp className="text-gradient" size={20} /> Revenue Performance ($)
+              <TrendingUp className="text-gradient" size={20} /> Revenue Performance (₹)
             </h3>
             <span className="badge badge-primary">Last 6 Months</span>
           </div>

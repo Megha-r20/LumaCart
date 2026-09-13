@@ -48,7 +48,7 @@ const OrderSuccess = () => {
             </div>
             <div style={{ textAlign: 'right' }}>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Total Paid</div>
-              <div style={{ fontWeight: 800, fontSize: '1.1rem' }}>${order.totalPrice?.toFixed(2)}</div>
+              <div style={{ fontWeight: 800, fontSize: '1.1rem' }}>₹{order.totalPrice?.toLocaleString('en-IN')}</div>
             </div>
           </div>
 
