@@ -62,26 +62,45 @@ const Home = () => {
 
           {/* Hero Showcase Card */}
           <div style={{ position: 'relative', textAlign: 'center' }}>
-            <div style={{ background: 'var(--bg-glass)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 'var(--radius-xl)', padding: '1.5rem', boxShadow: '0 30px 60px rgba(0,0,0,0.6)' }}>
-              <img
-                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
-                alt="Flagship Headphones"
-                style={{ borderRadius: 'var(--radius-lg)', maxHeight: 380, width: '100%', objectFit: 'cover' }}
-              />
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '1.25rem', padding: '0 0.5rem', textAlign: 'left' }}>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: '#A5B4FC', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Flagship Launch</div>
-                  <div style={{ fontWeight: 800, fontSize: '1.15rem' }}>Acoustic Pro ANC</div>
-                  <div style={{ color: '#F59E0B', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.2rem' }}>
-                    <Star size={14} fill="#F59E0B" color="#F59E0B" /> 4.8 Rating (14 Reviews)
+            <Link
+              to={featuredProducts[0] ? `/product/${featuredProducts[0].slug || featuredProducts[0]._id}` : '/shop'}
+              style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
+            >
+              <div
+                style={{
+                  background: 'var(--bg-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: 'var(--radius-xl)',
+                  padding: '1.5rem',
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.6)',
+                  cursor: 'pointer',
+                  transition: 'transform var(--transition-normal), border-color var(--transition-normal)'
+                }}
+                className="hero-product-card"
+              >
+                <img
+                  src={featuredProducts[0]?.images?.[0] || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80'}
+                  alt={featuredProducts[0]?.name || 'Flagship Headphones'}
+                  style={{ borderRadius: 'var(--radius-lg)', maxHeight: 380, width: '100%', objectFit: 'cover' }}
+                />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '1.25rem', padding: '0 0.5rem', textAlign: 'left' }}>
+                  <div>
+                    <div style={{ fontSize: '0.75rem', color: '#A5B4FC', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Flagship Launch</div>
+                    <div style={{ fontWeight: 800, fontSize: '1.15rem' }}>{featuredProducts[0]?.name || 'Acoustic Pro ANC'}</div>
+                    <div style={{ color: '#F59E0B', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.2rem' }}>
+                      <Star size={14} fill="#F59E0B" color="#F59E0B" /> {featuredProducts[0]?.rating || 4.8} Rating ({featuredProducts[0]?.numReviews || 14} Reviews)
+                    </div>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: '#FFF' }}>
+                      ₹{featuredProducts[0]?.price ? featuredProducts[0].price.toLocaleString('en-IN') : '24,999'}
+                    </div>
+                    <span className="badge badge-success">In Stock</span>
                   </div>
                 </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>₹24,999</div>
-                  <span className="badge badge-success">In Stock</span>
-                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
