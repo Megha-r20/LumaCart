@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { User, MapPin, Lock, Save, Plus, Trash2, Mail, Phone, ShieldCheck, Home, Briefcase, CheckCircle2, Edit2, Sparkles, Building, Hash } from 'lucide-react';
+import { User, MapPin, Lock, Save, Plus, Mail, Phone, ShieldCheck, Home, CheckCircle2, Edit2, Building, Hash } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import { NotificationContext } from '../context/NotificationContext';
 
@@ -376,7 +376,7 @@ const Profile = () => {
               </div>
               <button 
                 onClick={() => setShowAddressForm(false)} 
-                style={{ color: 'var(--text-muted)', fontSize: '1.5rem', lineHeight: 1, padding: '0.2rem' }}
+                style={{ color: 'var(--text-muted)', fontSize: '1.5rem', lineHeight: 1, padding: '0.2rem', cursor: 'pointer' }}
               >
                 &times;
               </button>
