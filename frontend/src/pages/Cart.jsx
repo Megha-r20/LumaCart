@@ -169,16 +169,28 @@ const Cart = () => {
               <h3 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Apply Promo Code</h3>
             </div>
 
-            <form onSubmit={handleApplyCoupon} style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem' }}>
+            <form onSubmit={handleApplyCoupon} style={{ display: 'flex', gap: '0.85rem', marginBottom: '1.25rem', maxWidth: '520px' }}>
               <input
                 type="text"
-                placeholder="Enter code (e.g. LUMA20)"
+                placeholder="Enter promo code (e.g. LUMA20)"
                 className="form-control"
-                style={{ textTransform: 'uppercase', letterSpacing: '1px', background: '#07090E' }}
+                style={{
+                  flex: 1,
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  background: '#07090E',
+                  color: '#F8FAFC',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '0.75rem 1.25rem',
+                  fontSize: '0.92rem'
+                }}
                 value={couponInput}
                 onChange={(e) => setCouponInput(e.target.value)}
               />
-              <button type="submit" className="btn btn-secondary">
+              <button type="submit" className="btn btn-primary" style={{ whiteSpace: 'nowrap', padding: '0.75rem 1.5rem' }}>
                 Apply Code
               </button>
             </form>
