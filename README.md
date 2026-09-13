@@ -7,6 +7,8 @@
 
 **LumaCart** is an editorial, luxury tech startup e-commerce platform built on the MERN stack (**MongoDB, Express.js, React, Node.js**). It offers a high-performance customer storefront localized in **Indian Rupees (₹)** paired with an executive SaaS administration console.
 
+![LumaCart Hero Showcase](./banner.png)
+
 ---
 
 ## ✨ Features Highlight
