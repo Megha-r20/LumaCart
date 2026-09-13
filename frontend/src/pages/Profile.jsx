@@ -125,7 +125,7 @@ const Profile = () => {
               background: 'linear-gradient(135deg, var(--primary), var(--secondary))', 
               display: 'flex', 
               alignItems: 'center', 
-              justify-content: 'center', 
+              justifyContent: 'center', 
               color: '#FFFFFF', 
               fontSize: '1.75rem', 
               fontWeight: 800,
