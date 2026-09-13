@@ -258,14 +258,31 @@ const ProductList = () => {
                 <textarea rows={3} className="form-control" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} required />
               </div>
 
-              <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.9rem' }}>
-                  <input type="checkbox" checked={formData.isFeatured} onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })} />
-                  <span>Featured Hero Showcase</span>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', background: 'rgba(7, 9, 14, 0.6)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', marginBottom: '1.5rem' }}>
+                <label className="toggle-switch-group">
+                  <input 
+                    type="checkbox" 
+                    className="toggle-switch"
+                    checked={formData.isFeatured} 
+                    onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })} 
+                  />
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#F8FAFC' }}>Featured Hero Showcase</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Display in main homepage hero banner</div>
+                  </div>
                 </label>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.9rem' }}>
-                  <input type="checkbox" checked={formData.isTrending} onChange={(e) => setFormData({ ...formData, isTrending: e.target.checked })} />
-                  <span>Trending Section</span>
+
+                <label className="toggle-switch-group">
+                  <input 
+                    type="checkbox" 
+                    className="toggle-switch"
+                    checked={formData.isTrending} 
+                    onChange={(e) => setFormData({ ...formData, isTrending: e.target.checked })} 
+                  />
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#F8FAFC' }}>Trending Section</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Highlight in trending items strip</div>
+                  </div>
                 </label>
               </div>
 

@@ -145,7 +145,7 @@ img {
   letter-spacing: 0.05em;
 }
 
-input, select, textarea, .form-control {
+input:not([type="checkbox"]):not([type="radio"]):not(.toggle-switch), select, textarea, .form-control {
   width: 100% !important;
   box-sizing: border-box !important;
   display: block !important;
@@ -162,7 +162,7 @@ input, select, textarea, .form-control {
   -webkit-appearance: none;
 }
 
-input:focus, select:focus, textarea:focus, .form-control:focus {
+input:not([type="checkbox"]):not([type="radio"]):not(.toggle-switch):focus, select:focus, textarea:focus, .form-control:focus {
   border-color: var(--primary) !important;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25) !important;
   background-color: #0F172A !important;
@@ -172,6 +172,65 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
 input::placeholder, textarea::placeholder {
   color: #64748B !important;
   opacity: 0.85;
+}
+
+/* Checkbox & Toggle Switch System */
+input[type="checkbox"]:not(.toggle-switch),
+input[type="radio"]:not(.toggle-switch) {
+  width: 18px !important;
+  height: 18px !important;
+  display: inline-block !important;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.toggle-switch-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  user-select: none;
+}
+
+.toggle-switch {
+  position: relative !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 24px !important;
+  background: #1E293B !important;
+  border-radius: 999px !important;
+  transition: background var(--transition-fast), border-color var(--transition-fast) !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-sizing: border-box !important;
+}
+
+.toggle-switch::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+  background: #94A3B8 !important;
+  transition: transform var(--transition-fast), background var(--transition-fast) !important;
+}
+
+.toggle-switch:checked {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4) !important;
+}
+
+.toggle-switch:checked::after {
+  transform: translateX(20px) !important;
+  background: #FFFFFF !important;
 }
 
 /* Icon-Input Wrapper */
