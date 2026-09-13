@@ -1,87 +1,122 @@
-# LumaCart — Production-Quality MERN Stack E-Commerce Platform
+# 🛍️ LumaCart — Premium Luxury Tech E-Commerce Platform
 
-LumaCart is a full-stack e-commerce web application built using the MERN stack (**MongoDB, Express.js, React, Node.js**) featuring a customer-facing storefront and an executive admin console.
+[![MERN Stack](https://img.shields.io/badge/Stack-MERN-6366F1?style=for-the-badge&logo=mongodb&logoColor=white)](https://github.com/Megha-r20/LumaCart)
+[![React](https://img.shields.io/badge/Frontend-React%20%7C%20Vite-06B6D4?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-10B981?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
 
-![LumaCart Banner](https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&auto=format&fit=crop&q=80)
+**LumaCart** is an editorial, luxury tech startup e-commerce platform built on the MERN stack (**MongoDB, Express.js, React, Node.js**). It offers a high-performance customer storefront localized in **Indian Rupees (₹)** paired with an executive SaaS administration console.
 
 ---
 
-## ✨ Features Breakdown
+## ✨ Features Highlight
 
 ### 🛒 Customer Storefront
-- **Modern Landing Page**: Hero showcase banner, category navigation cards, flash sale promo banner, and value proposition badges.
-- **Product Discovery & Catalog**: Debounced instant search, category filtering, price range slider, rating threshold, and sorting controls.
-- **Product Details & Gallery**: Multi-image preview, specs table tab, star rating breakdown, and customer review submission modal.
-- **Shopping Bag & Wishlist**: Dedicated full Shopping Bag page (`/cart`), Free Express Shipping progress meter, promo coupon chips (`LUMA20` for 20% off), itemized summary, and 1-click wishlist toggle.
-- **Express Checkout & Order Tracking**: Address selection step, credit card sandbox simulator (Stripe PaymentIntent backend endpoint), order placement, and interactive progress status timeline (`Pending` -> `Processing` -> `Shipped` -> `Delivered`).
+* **Obsidian & Electric Indigo Aesthetic**: Sleek dark mode design system built with custom CSS variables, glassmorphism backdrop blurs, and smooth micro-interactions.
+* **Vector Brand Identity**: Custom vector SVG logo integrated seamlessly across the navigation bar, footer, auth flows, and browser favicon.
+* **Product Catalog & Discovery**: Instant debounced search bar, category filter tabs, price range slider, star rating thresholds, and multi-option sorting.
+* **Product Detail Experience**: Multi-angle image previewer, technical specifications tab, star rating breakdown, and verified customer review modal.
+* **Shopping Bag (`/cart`)**: Full-screen shopping bag featuring a **₹5,000 Free Shipping Progress Meter**, interactive coupon application (`LUMA20` for 20% off), 18% GST tax calculation, item quantity modifiers, and itemized price breakdown.
+* **Checkout & Payment Simulation**: Multi-step checkout with saved shipping address selector, credit card / UPI sandbox simulator, Stripe PaymentIntent endpoint integration, and order summary confirmation.
+* **Order History & Timeline (`/orders`)**: Dedicated customer order tracking timeline (`Pending` ➔ `Processing` ➔ `Shipped` ➔ `Delivered`) with line-item detail view.
+* **User Profile Portal (`/profile`)**: Executive hero avatar header, account detail manager, password update form, and shipping address directory modal.
 
-### 📊 Executive Admin Console (`/admin`)
-- **Role-Based Authorization**: Protected routes (`role === 'admin'`).
-- **Dashboard Analytics**: Real-time Gross Revenue, Order Count, Product Count, Registered Customers, Low Stock Alerts, and visual charts using `Recharts`.
-- **Product CRUD & Category Manager**: Modals for creating, editing, and deleting products and categories.
-- **Centralized Order Fulfillment**: Order table with status filter tabs and status update modal with audit tracking notes.
-- **Customer Directory & Review Moderation**: Full user listing and review deletion controls.
+### 📊 Executive Admin SaaS Console (`/admin`)
+* **Role-Based Protection**: Strict JWT authorization restricting access to administrator accounts (`role === 'admin'`).
+* **KPI Dashboard Grid**: Responsive executive analytics grid displaying Gross Revenue, Total Orders, Product Count, Registered Customers, and Low Stock alerts with `Recharts` data visualization.
+* **Product Management**: Interactive inventory management with custom toggle switches for `In Stock` and `Featured` status, product creation, and stock updates.
+* **Category Manager**: Create, edit, and organize product category taxonomies.
+* **Order Fulfillment Center**: Centralized order directory with status filter tabs, audit note updates, and tracking number assignment.
+* **Customer Directory & Review Moderation**: Customer account oversight and one-click review moderation.
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-- **Backend**: Node.js, Express.js, Mongoose, MongoDB / MongoMemoryServer dynamic fallback, JSON Web Tokens (JWT), bcryptjs, CORS.
-- **Frontend**: React (Vite), React Router v6, Lucide Icons, Recharts, Axios, Custom CSS System (Variables, Obsidian dark mode, glassmorphism).
-- **Payment Gateway**: Stripe API integration (Test/Sandbox mode) with PaymentIntent creation.
+| Layer | Technologies & Tools |
+| :--- | :--- |
+| **Frontend** | React 18 (Vite), React Router v6, Lucide Icons, Recharts, Axios, HTML5 / Vanilla CSS Design System |
+| **Backend** | Node.js, Express.js, Mongoose, MongoDB / MongoMemoryServer (Dynamic Auto-Fallback) |
+| **Security & Auth** | JSON Web Tokens (JWT), bcryptjs password hashing, Protected Route Middleware, CORS |
+| **Payments** | Stripe API (INR PaymentIntent Sandbox) |
+| **Localization** | Indian Rupee (₹) Pricing, 18% GST Tax, ₹5,000 Free Express Shipping Threshold |
 
 ---
 
 ## 🔑 Demo Credentials
 
-- **Customer Demo Account**:
-  - Email: `user@lumacart.com`
-  - Password: `password123`
+| Role | Email | Password | Access / Features |
+| :--- | :--- | :--- | :--- |
+| **Customer** | `user@lumacart.com` | `password123` | Storefront, Wishlist, Checkout, My Orders, Profile |
+| **Executive Admin** | `admin@lumacart.com` | `password123` | Full Access + Executive Admin SaaS Console (`/admin`) |
 
-- **Executive Admin Account**:
-  - Email: `admin@lumacart.com`
-  - Password: `password123`
-
-- **Promo Coupon Code**:
-  - `LUMA20` (20% Off discount)
+> **Promo Discount Code**: Apply `LUMA20` at checkout for **20% OFF** your cart subtotal.
 
 ---
 
 ## 🚀 Getting Started Locally
 
 ### Prerequisites
-- Node.js (v18+)
-- npm (v9+)
+* **Node.js** (v18.0.0 or higher)
+* **npm** (v9.0.0 or higher)
 
-### Installation & Launch
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Megha-r20/LumaCart.git
+cd LumaCart
+```
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Megha-r20/LumaCart.git
-   cd LumaCart
-   ```
+### 2️⃣ Start Backend Server
+```bash
+cd backend
+npm install
+npm start
+```
+> *Note: If a local MongoDB instance is not detected, the backend will automatically spin up an **in-memory MongoDB database** (`MongoMemoryServer`) and seed initial product, user, and order datasets automatically.*
 
-2. **Start Backend Server**:
-   ```bash
-   cd backend
-   npm install
-   npm start
-   ```
-   *The backend will automatically start an in-memory MongoDB instance and seed initial sample data if local MongoDB is not running.*
+### 3️⃣ Start Frontend Development Server
+In a new terminal window:
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-3. **Start Frontend Dev Server**:
-   ```bash
-   cd ../frontend
-   npm install
-   npm run dev
-   ```
-
-4. Open your browser:
-   - **Storefront**: [http://localhost:3000](http://localhost:3000)
-   - **Admin Console**: [http://localhost:3000/admin](http://localhost:3000/admin)
-   - **Backend API**: [http://localhost:5000/api/health](http://localhost:5000/api/health)
+### 4️⃣ Open in Browser
+* **Customer Storefront**: [http://localhost:3000](http://localhost:3000)
+* **Admin SaaS Console**: [http://localhost:3000/admin](http://localhost:3000/admin)
+* **Backend API Health Check**: [http://localhost:5000/api/health](http://localhost:5000/api/health)
 
 ---
 
-## 📄 License
-This project is open-source under the MIT License.
+## 📁 Repository Structure
+
+```text
+LumaCart/
+├── backend/
+│   ├── config/          # Database configuration & MongoMemoryServer setup
+│   ├── controllers/     # API request handlers (auth, products, orders, etc.)
+│   ├── middleware/      # Auth & admin guard middlewares
+│   ├── models/          # Mongoose database schemas
+│   ├── routes/          # Express API route endpoints
+│   ├── utils/           # Database seeder script
+│   ├── server.js        # Express application entry point
+│   └── package.json
+├── frontend/
+│   ├── public/          # Vector SVG brand logo & favicon assets
+│   ├── src/
+│   │   ├── components/  # Navbar, Footer, CartDrawer, OrderTimeline, ProductCard
+│   │   ├── context/     # Auth, Cart, and Wishlist React Contexts
+│   │   ├── pages/       # Home, Shop, ProductDetail, Cart, Checkout, Profile, Orders
+│   │   │   └── admin/   # AdminLayout, Dashboard, ProductList, OrderList, etc.
+│   │   ├── styles/      # main.css (Luxury dark obsidian design system)
+│   │   └── main.jsx
+│   ├── vite.config.js
+│   └── package.json
+└── README.md
+```
+
+---
+
+## 📜 License
+This project is open-source and available under the [MIT License](LICENSE).
