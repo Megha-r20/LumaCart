@@ -9,13 +9,17 @@ import { connectDB } from '../config/db.js';
 
 dotenv.config();
 
-export const seedDatabase = async () => {
-  if (process.env.NODE_ENV === 'production' && process.env.SEED_DB !== 'true') {
+export const shouldAutoSeedDatabase = ({ userCount = 0, productCount = 0 } = {}) => {
+  return userCount === 0 || productCount === 0;
+};
+
+export const seedDatabase = async ({ force = false } = {}) => {
+  if (!force && process.env.NODE_ENV === 'production' && process.env.SEED_DB !== 'true') {
     console.log('Production seeding is disabled. Set SEED_DB=true only for explicit setup operations.');
     return;
   }
 
-  if (process.env.SEED_DB !== 'true' && !process.argv[1]?.endsWith('seeder.js')) {
+  if (!force && process.env.SEED_DB !== 'true' && !process.argv[1]?.endsWith('seeder.js')) {
     console.log('Database seeding is disabled. Use the seed script or set SEED_DB=true explicitly.');
     return;
   }

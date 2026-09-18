@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
-import { seedDatabase } from './utils/seeder.js';
+import { seedDatabase, shouldAutoSeedDatabase } from './utils/seeder.js';
 
 import authRoutes from './routes/authRoutes.js';
 import productRoutes from './routes/productRoutes.js';
@@ -16,6 +16,8 @@ import orderRoutes from './routes/orderRoutes.js';
 import reviewRoutes from './routes/reviewRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
+import User from './models/User.js';
+import Product from './models/Product.js';
 
 dotenv.config();
 
@@ -117,9 +119,17 @@ const initializeServer = async () => {
   await connectDB();
 
   if (process.env.SEED_DB === 'true') {
-    await seedDatabase();
+    await seedDatabase({ force: true });
   } else if (!isProduction) {
-    console.log('Skipping automatic seeding. Set SEED_DB=true to seed the database for local setup.');
+    const userCount = await User.countDocuments();
+    const productCount = await Product.countDocuments();
+
+    if (shouldAutoSeedDatabase({ userCount, productCount })) {
+      console.log('Fresh development database detected. Seeding demo users and catalog for local login access.');
+      await seedDatabase({ force: true });
+    } else {
+      console.log('Database already contains demo data. Skipping automatic seeding.');
+    }
   }
 
   await startServer();
