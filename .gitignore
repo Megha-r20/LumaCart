@@ -9,8 +9,11 @@ frontend/build/
 
 # Environment Variables
 .env
+.env.*
 backend/.env
 frontend/.env
+**/.env
+**/.env.*
 *.env.local
 
 # Logs
