@@ -10,8 +10,17 @@ import { connectDB } from '../config/db.js';
 dotenv.config();
 
 export const seedDatabase = async () => {
+  if (process.env.NODE_ENV === 'production' && process.env.SEED_DB !== 'true') {
+    console.log('Production seeding is disabled. Set SEED_DB=true only for explicit setup operations.');
+    return;
+  }
+
+  if (process.env.SEED_DB !== 'true' && !process.argv[1]?.endsWith('seeder.js')) {
+    console.log('Database seeding is disabled. Use the seed script or set SEED_DB=true explicitly.');
+    return;
+  }
+
   try {
-    // Check if products already exist to avoid double-seeding on restart
     console.log('Seeding LumaCart database with Indian Rupee (₹) product catalog...');
     await Product.deleteMany({});
     await Category.deleteMany({});
@@ -409,7 +418,8 @@ export const seedDatabase = async () => {
 };
 
 // Allow direct CLI invocation via npm run seed
-if (process.argv[1].endsWith('seeder.js')) {
+if (process.argv[1]?.endsWith('seeder.js')) {
+  process.env.SEED_DB = 'true';
   connectDB().then(async () => {
     await seedDatabase();
     process.exit(0);
