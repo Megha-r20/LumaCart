@@ -1,13 +1,11 @@
+import 'dotenv/config';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import User from '../models/User.js';
 import Category from '../models/Category.js';
 import Product from '../models/Product.js';
 import Review from '../models/Review.js';
 import Order from '../models/Order.js';
 import { connectDB } from '../config/db.js';
-
-dotenv.config();
 
 export const shouldAutoSeedDatabase = ({ userCount = 0, productCount = 0 } = {}) => {
   return userCount === 0 || productCount === 0;

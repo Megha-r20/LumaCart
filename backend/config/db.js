@@ -3,6 +3,8 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 
 let mongoMemoryServer = null;
 
+export const shouldUseInMemoryMongo = (uri = process.env.MONGODB_URI) => !uri;
+
 export const connectDB = async () => {
   const isProduction = process.env.NODE_ENV === 'production';
   const connUri = process.env.MONGODB_URI || (isProduction ? null : 'mongodb://127.0.0.1:27017/lumacart');
@@ -26,6 +28,11 @@ export const connectDB = async () => {
     console.log(`MongoDB Connected: ${conn.connection.host}`);
     return conn;
   } catch (error) {
+    if (process.env.MONGODB_URI) {
+      console.error(`Configured MongoDB URI failed (${error.message}). Refusing to fall back to MongoMemoryServer because an explicit database connection was provided.`);
+      throw error;
+    }
+
     if (isProduction) {
       console.error(`Production MongoDB connection failed: ${error.message}`);
       throw error;
