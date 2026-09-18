@@ -39,9 +39,25 @@ app.use(cors({
 
 app.use(express.json());
 
-// API Routes
-app.get('/api/health', (req, res) => {
+const sendHealthResponse = (res) => {
   res.json({ status: 'ok', message: 'LumaCart API active', timestamp: new Date() });
+};
+
+// API Routes
+app.get('/', (req, res) => {
+  sendHealthResponse(res);
+});
+
+app.get('/api', (req, res) => {
+  sendHealthResponse(res);
+});
+
+app.get('/health', (req, res) => {
+  sendHealthResponse(res);
+});
+
+app.get('/api/health', (req, res) => {
+  sendHealthResponse(res);
 });
 
 app.use('/api/users', authRoutes);
